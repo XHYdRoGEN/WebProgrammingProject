@@ -1,0 +1,78 @@
+﻿@page
+@model WebProgrammingProject1.MyPosts
+
+@{
+    ViewData["Title"] = "Paylaşımlarım";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+    <div class="text-center">
+        <h2 class="display-4">Paylaşımlarım</h2>
+    </div>
+    <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-4">
+            <p>
+                <a class="btn btn-primary" asp-page="Create">Yeni</a>
+            </p>
+        </div>
+        
+    </div>
+
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Posts[0].PostTitle)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Posts[0].PostThumbnailUrl)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Posts[0].PostContent)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Posts[0].PostLikeCount)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Posts[0].PostCommentCount)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Posts)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PostTitle)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PostThumbnailUrl).ToString().Substring(0,5) ...
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PostContent)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PostLikeCount)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PostCommentCount)
+                        </td>
+                        <td>
+                            <a class="btn btn-warning" asp-page="./Edit" asp-route-id="@item.PostID">Edit</a> |
+                            <a class="btn btn-primary" asp-page="./Details" asp-route-id="@item.PostID">Details</a> |
+                            <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.PostID">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+

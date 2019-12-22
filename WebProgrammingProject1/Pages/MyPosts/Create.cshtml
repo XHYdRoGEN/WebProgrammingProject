@@ -1,0 +1,57 @@
+﻿@page
+@model WebProgrammingProject1.CreateMyPosts
+
+@{
+    ViewData["Title"] = "Paylaşım Yap";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div class="text-center">
+    <h2 class="display-4">Paylaşım Yap</h2>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Posts.PostTitle" class="control-label"></label>
+                <input asp-for="Posts.PostTitle" class="form-control" />
+                <span asp-validation-for="Posts.PostTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Posts.PostThumbnailUrl" class="control-label"></label>
+                <input asp-for="Posts.PostThumbnailUrl" class="form-control" />
+                <span asp-validation-for="Posts.PostThumbnailUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Posts.PostContent" class="control-label"></label>
+                <input asp-for="Posts.PostContent" class="form-control" />
+                <span asp-validation-for="Posts.PostContent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Posts.Category" class="control-label"></label>
+                <select class="form-control" asp-for="Posts.Category.CategoryID" asp-items="@Model.Kategoriler">
+                    <option>Bir Kategori Seçin</option>
+                </select>
+                <span asp-validation-for="Posts.Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Paylaş !" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-2">
+        <a class="btn btn-danger" asp-page="Index">Geri Dön</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

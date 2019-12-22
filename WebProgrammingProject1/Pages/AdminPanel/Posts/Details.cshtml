@@ -1,0 +1,49 @@
+﻿@page
+@model WebProgrammingProject1.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_LayoutProfile.cshtml";
+}
+
+<h3>Detaylar</h3>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Posts.PostTitle)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Posts.PostTitle)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Posts.PostThumbnailUrl)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Posts.PostThumbnailUrl)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Posts.PostContent)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Posts.PostContent)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Posts.PostLikeCount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Posts.PostLikeCount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Posts.PostCommentCount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Posts.PostCommentCount)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-warning" asp-page="./Edit" asp-route-id="@Model.Posts.PostID">Edit</a> |
+    <a class="btn btn-success" asp-page="./Index">Back to List</a>
+</div>

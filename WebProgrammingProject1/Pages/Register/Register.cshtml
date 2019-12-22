@@ -1,0 +1,38 @@
+﻿@page
+@model WebProgrammingProject1.RegisterModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = null;
+}
+<link href="~/css/Login.css" rel="stylesheet" />
+
+<html>
+<head>
+
+</head>
+<body>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <!-- Tabs Titles -->
+            <!-- Icon -->
+            <div class="fadeIn first">
+                <h1>Share It</h1>
+                <hr />
+                <h3>Kayıt Ol</h3>
+            </div>
+
+            <!-- Login Form -->
+            <form method="post">
+                @Html.TextBoxFor(x => x.User.UserName, new { @class = "fadeIn second", placeholder = "Ad" })
+                @Html.TextBoxFor(x => x.User.UserSurname, new { @class = "fadeIn second", placeholder = "Soyad" })
+                @Html.TextBoxFor(x => x.User.UserEmail, new { @class = "fadeIn second", placeholder = "Email" })
+                @Html.TextBoxFor(x => x.User.UserNickName, new { @class = "fadeIn second", placeholder = "Kulllanıcı Adı" })
+                @Html.TextBoxFor(x => x.User.UserPassword, new { @class = "fadeIn third", placeholder = "Şifre" })
+
+                <input type="submit" class="fadeIn fourth" value="Kayıt Ol">
+            </form>
+
+        </div>
+    </div>
+</body>
+</html>

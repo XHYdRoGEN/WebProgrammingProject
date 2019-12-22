@@ -1,0 +1,61 @@
+﻿@page
+@removeTagHelper Microsoft.AspNetCore.Mvc.TagHelpers.FormTagHelper, Microsoft.AspNetCore.Mvc.TagHelpers
+@model WebProgrammingProject1.PostsModel
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer;
+@{
+    ViewData["Title"] = "Posts";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+@if (Model.isAuth == true)
+{
+    <div class="text-center">
+        <h2 class="display-4">@Localizer["Posts"]</h2>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-md-3">
+            <h3 style="text-align:center;" class="my-4">@Localizer["Categories"]</h3>
+            <div class="list-group">
+                <a href="/Posts/Posts" class="list-group-item">@Localizer["Hepsi"]</a>
+                @foreach (var category in Model.Categories)
+                {
+                    <a href="/Posts/Posts?categoryId=@category.CategoryID" class="list-group-item">@Localizer[category.CategoryName]</a>
+
+                }
+            </div>
+        </div>
+        <div class="col-md-9">
+
+            <div class="row">
+                @foreach (var post in Model.Posts)
+                {
+                    <div class="card" style="width: 16rem;margin-top:2%;" id="@post.PostID">
+                        <img class="card-img-top" src="@post.PostThumbnailUrl" alt="Card image cap" width="100px;" height="100px;">
+                        <div class="card-body">
+                            <h5 class="card-title">@post.PostTitle</h5>
+                            <p class="card-text">@post.PostContent.Substring(0, post.PostContent.Length / 2) ...</p>
+                            <a class="btn btn-primary showAll" style="color:white">@Localizer["SeeAll"]</a>
+
+                            @if (Model.Likes.Where(x => x.User.UserID == Model.ActiveUser.UserID).Select(x => x.Post.PostID).ToList().Contains(post.PostID) == true)
+                            {
+                                <i class="material-icons favorite" style="font-size:36px;cursor:pointer;color:red;;float:right;">favorite</i>
+                            }
+
+                            else
+                            {
+                                <i class="material-icons favorite" style="font-size:36px;cursor:pointer;float:right;">favorite</i>
+                            }
+
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    
+    <div class="ModalDiv">
+
+    </div>
+
+}
+<script src="~/js/Posts.js"></script>

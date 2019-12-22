@@ -1,0 +1,46 @@
+﻿@page
+@model WebProgrammingProject1.CommentsModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_LayoutProfile.cshtml";
+}
+
+<h1>Yorumlar</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Yorum
+            </th>
+            <th>
+                Paylaşan
+            </th>
+            <th>
+                Yorumun Gönderisi
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Comments) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CommentContent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem=>item.User.UserNickName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem=>item.Post.PostTitle)
+            </td>
+            <td>
+                <a class="btn btn-warning" asp-page="./Edit" asp-route-id="@item.CommentID">Edit</a> |
+                <a class="btn btn-primary" asp-page="./Details" asp-route-id="@item.CommentID">Details</a> |
+                <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.CommentID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

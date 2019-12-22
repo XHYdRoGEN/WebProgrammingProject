@@ -1,0 +1,45 @@
+﻿@page
+@model WebProgrammingProject1.MyFavorites
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<div class="text-center">
+    <h2 class="display-4">Favorilerim</h2>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <div class="row">
+            @foreach (var post in Model.posts)
+            {
+                <div class="card" style="width: 16rem;margin-top:2%;" id="@post.PostID">
+                    <img class="card-img-top" src="@post.PostThumbnailUrl" alt="Card image cap" width="100px;" height="100px;">
+                    <div class="card-body">
+                        <h5 class="card-title">@post.PostTitle</h5>
+                        <p class="card-text">@post.PostContent.Substring(0, post.PostContent.Length / 2) ...</p>
+                        <a class="btn btn-primary showAll" style="color:white">Tümünü Oku</a>
+
+                        @if (Model.Likes.Where(x => x.User.UserID == Model.ActiveUser.UserID).Select(x => x.Post.PostID).ToList().Contains(post.PostID) == true)
+                        {
+                            <i class="material-icons favorite" style="font-size:36px;cursor:pointer;color:red;;float:right;">favorite</i>
+                        }
+
+                        else
+                        {
+                            <i class="material-icons favorite" style="font-size:36px;cursor:pointer;float:right;">favorite</i>
+                        }
+
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="ModalDiv">
+
+    </div>
+</div>
+
+<script src="~/js/Posts.js"></script>

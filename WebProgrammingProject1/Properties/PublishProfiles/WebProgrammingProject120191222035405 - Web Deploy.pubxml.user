@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0vqouvENtU2zSJdWrQr86QAAAAACAAAAAAAQZgAAAAEAACAAAACQrwVEevbF2LnEz5+dPj8cJgG/zOGABcg4YMks/GpLqQAAAAAOgAAAAAIAACAAAADFQAX9KIR2IqWU8FKsCHUPWCdqpTtNlF1J+/T0vXDr44AAAAAQstxlnnza/npIUsmkkW5t6gjnLX8PiwVLY7j6W4zENIZJ5DwTA1D/nQoMwDcyKAM9E1uT/sXrTe17T3PrZTI0gkFnWAbsE3vner6dcBVfq5itoscld9NfJX/2of76zVdia+/UscaKuObuiHEGCmycKmjCunAJw++nV4QQ2Vq56EAAAACdr6smphQKugDbxw23hVT4myoO6dI23IImw8lK3+8z7DYm5u1IMgCEWPG1424apnUQuqHbIIDrfYARJk9k2UL7</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="ShareItContext">
+      <Value>Data Source=tcp:webprogrammingproject120191222035405dbserver.database.windows.net,1433%3bInitial Catalog=WebProgrammingProject120191222035405_db%3bUser Id=sqladmin%40webprogrammingproject120191222035405dbserver%3bPassword=Admin123456</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="WebProgrammingProject1.Context.ShareItContext">
+      <Value>Data Source=tcp:webprogrammingproject120191222035405dbserver.database.windows.net,1433%3bInitial Catalog=WebProgrammingProject120191222035405_db%3bUser Id=sqladmin%40webprogrammingproject120191222035405dbserver%3bPassword=Admin123456</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,28 @@
+﻿@page
+@model WebProgrammingProject1.DeleteComments
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Pages/Shared/_LayoutProfile.cshtml";
+}
+
+<h3>Sil</h3>
+
+<div>
+    <h4>Comments</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Comments.CommentContent)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Comments.CommentContent)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Comments.CommentID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a class="btn btn-success" asp-page="./Index">Geri Dön</a>
+    </form>
+</div>

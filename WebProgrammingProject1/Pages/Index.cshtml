@@ -1,0 +1,15 @@
+﻿@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer;
+@model IndexModel
+
+@{
+    ViewData["Title"] = "ShareIt";
+
+}
+
+<div class="text-center">
+    <h1 class="display-4">@Localizer["Welcome"]</h1>
+    <h4>@Localizer["Message1"]</h4>
+    <h4>@Localizer["Message2"]</h4>
+</div>

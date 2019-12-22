@@ -1,0 +1,37 @@
+﻿@page
+@model WebProgrammingProject1.IndexCategory
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_LayoutProfile.cshtml";
+}
+
+<h3>Kategoriler</h3>
+
+<p>
+    <a class="btn btn-success" asp-page="Create">Yeni Kategori Oluştur</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Categories[0].CategoryName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Categories) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                <a class="btn btn-warning" asp-page="./Edit" asp-route-id="@item.CategoryID">Düzenle</a> |
+                <a class="btn btn-primary" asp-page="./Details" asp-route-id="@item.CategoryID">Detaylar</a> |
+                <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.CategoryID">Sil</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
